@@ -1,0 +1,10 @@
+
+.credits-content {
+  animation: none !important;
+  transition: none !important;
+}
+
+.credits-content:hover {
+  animation: none !important;
+  transition: none !important;
+}

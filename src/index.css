@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 222 20% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 20% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 20% 18%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222 20% 18%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 20% 18%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.75rem;
+    
+    /* College brand colors */
+    --ksrct-blue: 210 100% 50%;
+    --ksrct-orange: 30 100% 60%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 18%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 224 76% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Enhanced Glass effect with better realism */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-card {
+    @apply glass rounded-lg shadow-sm;
+  }
+  
+  /* Text shadow for better contrast on gradients */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Enhanced gradient backgrounds */
+  .realistic-gradient {
+    @apply bg-gradient-to-br from-[#FF7E30] via-[#F97316] to-[#0284c7] opacity-75;
+  }
+
+  /* Updated depth effects */
+  .depth-decoration {
+    @apply absolute inset-0 z-0;
+  }
+
+  .depth-decoration::before {
+    content: "";
+    @apply absolute top-10 left-10 w-[45vw] h-[45vh] rounded-full bg-[#FF8F50] opacity-40 blur-3xl;
+  }
+
+  .depth-decoration::after {
+    content: "";
+    @apply absolute bottom-20 right-20 w-[40vw] h-[40vh] rounded-full bg-[#0EA5E9] opacity-40 blur-3xl;
+  }
+  
+  /* Paper texture for realism */
+  .paper-texture {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiPjwvcmVjdD4KPHBhdGggZD0iTTAgNUw1IDBaTTYgNEw0IDZaTS0xIDFMMSAtMVoiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');
+    opacity: 0.3;
+  }
+  
+  /* Login page background patterns */
+  .login-pattern {
+    background-image: 
+      radial-gradient(circle at 35% 25%, rgba(249, 115, 22, 0.3) 0%, transparent 45%),
+      radial-gradient(circle at 65% 75%, rgba(14, 165, 233, 0.3) 0%, transparent 45%);
+  }
+
+  /* Orange-Blue background pattern */
+  .orange-blue-gradient {
+    @apply bg-gradient-to-br from-[#F97316] to-[#0EA5E9] opacity-75;
+  }
+
+  .orange-decoration {
+    @apply absolute inset-0 z-0;
+  }
+
+  .orange-decoration::before {
+    content: "";
+    @apply absolute top-10 left-10 w-80 h-80 rounded-full bg-orange-500 opacity-40 blur-3xl;
+  }
+
+  .orange-decoration::after {
+    content: "";
+    @apply absolute bottom-20 right-20 w-80 h-80 rounded-full bg-blue-500 opacity-30 blur-3xl;
+  }
+
+  /* Transition classes */
+  .page-transition-enter {
+    @apply opacity-0 translate-y-2;
+  }
+  
+  .page-transition-enter-active {
+    @apply opacity-100 translate-y-0 transition-all duration-300 ease-in-out;
+  }
+  
+  .page-transition-exit {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .page-transition-exit-active {
+    @apply opacity-0 translate-y-2 transition-all duration-300 ease-in-out;
+  }
+
+  /* Form elements styling */
+  input, select, textarea {
+    @apply transition-all duration-200;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+  
+  /* Responsive table styles */
+  .table-container {
+    @apply w-full overflow-x-auto;
+  }
+  
+  /* Responsive charts */
+  .chart-container {
+    @apply w-full h-full min-h-[200px];
+  }
+  
+  /* Mobile-specific adjustments */
+  @media (max-width: 640px) {
+    .mobile-stack {
+      @apply flex-col;
+    }
+    
+    .mobile-full-width {
+      @apply w-full;
+    }
+    
+    .mobile-scrollable {
+      @apply overflow-x-auto pb-2;
+    }
+    
+    .mobile-hide {
+      @apply hidden;
+    }
+    
+    .mobile-compact-padding {
+      @apply p-2;
+    }
+  }
+}
+
+@layer components {
+  .container-centered {
+    @apply container mx-auto max-w-6xl px-4 sm:px-6;
+  }
+  
+  .btn-primary {
+    @apply rounded-md bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+  }
+  
+  .input-field {
+    @apply block w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50;
+  }
+  
+  /* College brand specific styles */
+  .ksrct-gradient {
+    @apply bg-gradient-to-r from-[#F97316] via-[#0EA5E9] to-[#33C3F0];
+  }
+  
+  .ksrct-glass-card {
+    @apply bg-white/90 backdrop-blur-sm shadow-lg rounded-lg border border-white/20;
+  }
+  
+  /* Responsive grid layouts */
+  .responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+  }
+  
+  .responsive-grid-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6;
+  }
+  
+  /* Card with equal height in grid */
+  .equal-height-card {
+    @apply h-full flex flex-col;
+  }
+  
+  .card-content-flex {
+    @apply flex-grow;
+  }
+}
+
+@import './styles/credits.css';
